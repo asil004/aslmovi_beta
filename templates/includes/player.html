@@ -1,0 +1,9 @@
+<div id="player"></div>
+<script>
+    var player = new Playerjs({
+        id: "player",
+        {#file: "{{movies.file}}"#}
+        {% get_response(movie.file) as fl %}
+        file: '[{"title":"1 qism","file":"https://film10.uzmovi.club/cupid/1qism.mp4"},{"title":"2 qism","file":"https://film10.uzmovi.club/cupid/2qism.mp4"}]'
+    });
+</script>

@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load genre_tag %}
+{% block home %}
+    <div class="hero mv-single-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-single movie-single movie_single">
+        <div class="container">
+            <div class="row ipad-width2">
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="movie-img sticky-sb">
+                        <img src="{{ movies.picture }}" alt="">
+                        {#                        <div class="movie-btn">#}
+                        {#                            <div class="btn-transform transform-vertical red">#}
+                        {#                                <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a>#}
+                        {#                                </div>#}
+                        {#                                <div><a href="https://www.youtube.com/embed/o-0hcF97wy0"#}
+                        {#                                        class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>#}
+                        {#                                </div>#}
+                        {#                            </div>#}
+                        {#                            <div class="btn-transform transform-vertical">#}
+                        {#                                <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a>#}
+                        {#                                </div>#}
+                        {#                                <div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="movie-single-ct main-content"
+                    <p></p>
+                    <h1 class="bd-hd">{{ movies.title }}</h1>
+
+
+                    <div class="movie-tabs">
+                        <div class="tabs">
+
+                            <div class="tab-content">
+                                <div id="overview" class="tab active">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-12 col-xs-12">
+                                            <p>{{ movies.description }}</p>
+                                            {% include 'includes/adsv2.html' %}
+                                            <div id="player"></div>
+                                            <script>
+                                                var player = new Playerjs({
+                                                    id: "player",
+                                                    file:{% if  movies.file|is_txt %}
+                                                        {{ movies.file|get_response|safe }}
+                                                    {% else %}
+                                                        '{{ movies.file }}'
+                                                    {% endif %},
+                                                    poster: '{% static 'images/poster.jpg' %}'
+                                                });
+                                            </script>
+                                        </div>
+                                        {% include 'includes/adsv1.html' %}
+                                        <div class="col-md-4 col-xs-12 col-sm-12">
+                                            <div class="sb-it">
+                                                <h6>Mamlakat: </h6>
+                                                <p>{{ movies.country }}</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Janr: </h6>
+                                                <p>{{ movies.genre }}</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Yili:</h6>
+                                                <p>{{ movies.year }}</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Sifati:</h6>
+                                                <p>{{ movies.quality }}</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Ovozi:</h6>
+                                                <p>{{ movies.voice }}</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Davomiyligi:</h6>
+                                                <p>{{ movies.duration }} daqiqa</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- footer section-->
+{% endblock %}
