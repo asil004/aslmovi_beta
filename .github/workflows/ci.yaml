@@ -26,6 +26,6 @@ jobs:
           SQL_DATABASE: aslmovi
           SQL_USER: postgres
           SQL_PASSWORD: 12345
-          SQL_HOST: local
+          SQL_HOST: 127.0.0.1
           SQL_PORT: 5432
         run: python manage.py test
