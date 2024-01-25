@@ -10,7 +10,7 @@ DATABASES = {
         "NAME": config("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
         "USER": config("SQL_USER", "user"),
         "PASSWORD": config("SQL_PASSWORD", "password"),
-        "HOST": config("SQL_HOST", "localhost"),
+        "HOST": 'localhost',
         "PORT": config("SQL_PORT", "5432"),
     }
 }
