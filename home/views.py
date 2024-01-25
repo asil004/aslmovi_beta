@@ -1,5 +1,3 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from django_filters.views import FilterView
 from home.filters import MovieFilter
 from home.models import Movie
