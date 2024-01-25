@@ -11,7 +11,6 @@ DATABASES = {
         "USER": config("SQL_USER", "user"),
         "PASSWORD": config("SQL_PASSWORD", "password"),
         "HOST": 'localhost',
-        "PORT": config("SQL_PORT", "5432"),
     }
 }
 
